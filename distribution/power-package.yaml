@@ -1,0 +1,107 @@
+apiVersion: dw.superapps/v1
+kind: PowerDistribution
+metadata:
+  id: bmad
+  name: BMAD Method
+  description: Structured software-delivery lifecycle covering analysis, planning, architecture, implementation, and review.
+spec:
+  source:
+    repository: nhatnguyenquang1838-coder/BMAD-METHOD
+    defaultRef: main
+  package:
+    entrypoints:
+      - src/core-skills/bmad-help/SKILL.md
+      - src/bmm-skills/module.yaml
+    managedPaths:
+      - src/core-skills
+      - src/bmm-skills
+      - src/scripts
+      - tools
+      - distribution/config
+      - distribution/contracts
+    runtimeTemplates: true
+  include:
+    - src/core-skills/**
+    - src/bmm-skills/**
+    - src/scripts/**
+    - tools/**
+    - distribution/config/**
+    - distribution/contracts/**
+    - LICENSE
+    - README.md
+    - bmad-modules.yaml
+  exclude:
+    - "**/node_modules/**"
+    - "**/__pycache__/**"
+    - "**/.git/**"
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/*.log"
+    - "**/.DS_Store"
+    - website/**
+    - web-bundles/**
+    - docs/**
+    - test/**
+    - .github/**
+    - .augment/**
+    - .claude-plugin/**
+    - .coderabbit.yaml
+    - .husky/**
+    - .markdownlint-cli2.yaml
+    - .npmignore
+    - .nvmrc
+    - .prettierignore
+    - .vscode/**
+    - package.json
+    - package-lock.json
+    - eslint.config.mjs
+    - prettier.config.mjs
+    - tsconfig.json
+    - vitest.config.ts
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - CONTRIBUTORS.md
+    - SECURITY.md
+    - TRADEMARK.md
+    - Wordmark.png
+    - banner-bmad-method.png
+    - CNAME
+    - removals.txt
+  forbidden:
+    paths:
+      - ".gwc/**"
+      - ".ua/**"
+      - ".task-me/**"
+      - ".bmad/**"
+      - "website/**"
+      - "web-bundles/**"
+      - "docs/**"
+      - "test/**"
+      - ".github/**"
+      - ".augment/**"
+      - ".claude-plugin/**"
+      - ".husky/**"
+      - ".vscode/**"
+      - "package.json"
+      - "package-lock.json"
+      - "eslint.config.mjs"
+      - "prettier.config.mjs"
+      - "tsconfig.json"
+      - "vitest.config.ts"
+      - "CHANGELOG.md"
+      - "CONTRIBUTING.md"
+      - "CONTRIBUTORS.md"
+      - "SECURITY.md"
+      - "TRADEMARK.md"
+      - "Wordmark.png"
+      - "banner-bmad-method.png"
+      - "CNAME"
+      - "removals.txt"
+      - "**/.env*"
+      - "**/secrets/**"
+    contentPatterns:
+      - '(?i)BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
+      - '(?i)(api[_-]?key|access[_-]?token|secret|password)\\s*[:=]\\s*[\'"][^\'"]{12,}[\'"]'
+  runtime:
+    dataRoot: .bmad
+    configRequired: false
