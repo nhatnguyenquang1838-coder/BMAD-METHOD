@@ -12,6 +12,7 @@ spec:
     entrypoints:
       - src/core-skills/bmad-help/SKILL.md
       - src/bmm-skills/module.yaml
+      - tools/power-help.js
     managedPaths:
       - src/core-skills
       - src/bmm-skills
@@ -101,7 +102,7 @@ spec:
       - "**/secrets/**"
     contentPatterns:
       - '(?i)BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
-      - '(?i)(api[_-]?key|access[_-]?token|secret|password)\\s*[:=]\\s*[\'"][^\'"]{12,}[\'"]'
+      - '(?i)(api[_-]?key|access[_-]?token|secret|password)\s*[:=]\s*["''][^"'']{12,}["'']'
   runtime:
     dataRoot: .bmad
     configRequired: false
